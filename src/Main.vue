@@ -334,17 +334,18 @@ onUnmounted(() => {
     box-sizing: border-box;
 }
 
-.automatta-site {
-    font-family: 'JetBrains Mono', monospace;
-    background: #0E0E0F;
-    color: #F2F2F2;
-    overflow-x: hidden;
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
-/* Fixed Header */
-.fixed-header {
-    position: fixed;
-    top: 0;
+.automatta-site {
+  font-family: 'JetBrains Mono', monospace;
+  background: #0E0E0F;
+  color: #F2F2F2;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -354,20 +355,21 @@ onUnmounted(() => {
 }
 
 .header-content {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: none;
-    position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
 .logo {
-    font-weight: 900;
-    font-size: 1.5rem;
-    letter-spacing: 0.2em;
-    color: #F2A93B;
-}
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: 0.2em;
+  color: #F2A93B;
+  white-space: nowrap;
 
 .nav-menu {
     position: fixed;
@@ -502,48 +504,51 @@ onUnmounted(() => {
 }
 
 .hero-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.3em;
-    color: #F2A93B;
-    margin-bottom: 1rem;
-    font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: #F2A93B;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
 }
 
 .hero-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    line-height: 0.9;
-    margin-bottom: 1rem;
-    color: #F2F2F2;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 0.9;
+  margin-bottom: 1rem;
+  color: #F2F2F2;
+  word-break: keep-all;
 }
 
 .hero-subtitle {
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    color: #B5B8BE;
-    margin-bottom: 2rem;
-    font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: #B5B8BE;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .hero-actions {
-    display: flex;
-    gap: 0;
-    flex-direction: column;
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  width: 100%;
 }
 
 .action-btn {
-    padding: 1rem 2rem;
-    font-family: inherit;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
+  padding: 1rem 1.5rem;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
 
 .action-btn.primary {
     background: #E87A2F;
@@ -613,31 +618,34 @@ onUnmounted(() => {
 /* Sections */
 section {
     width: 100%;
-    padding: 4rem 2rem;
+  max-width: 100vw;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .section-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 3rem;
-    gap: 1.5rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .section-number {
-    font-size: 4rem;
-    font-weight: 900;
-    color: #2B2E34;
-    line-height: 1;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #2B2E34;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .section-title {
-    font-size: 2rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: #F2F2F2;
-}
-
-/* Music Section */
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #F2F2F2;
+  flex-shrink: 0;
 .music-section {
     background: #1C1E22;
 }
@@ -697,21 +705,24 @@ section {
 }
 
 .contact-links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    max-width: 100%;
 }
 
 .contact-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem;
+    padding: 2rem 1rem;
     background: #1C1E22;
     color: #F2F2F2;
     text-decoration: none;
     transition: all 0.3s;
     border: 1px solid #2B2E34;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .contact-link:hover {
@@ -739,14 +750,18 @@ section {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 100vw;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 1rem;
 }
 
 .carousel-wrapper {
     overflow: hidden;
     border: 1px solid #2B2E34;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .carousel-track {
@@ -1360,5 +1375,4 @@ section {
             }
         }
     }
-}
 </style>
