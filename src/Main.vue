@@ -5,10 +5,10 @@
             <div class="header-content">
                 <div class="logo">AUTOMATTA</div>
                 <nav class="nav-menu" :class="{ 'mobile-open': isMobileMenuOpen }">
-                    <a href="#music" @click.prevent="scrollToSection('music')">MUSIC</a>
-                    <a href="#about" @click.prevent="scrollToSection('about')">ABOUT</a>
-                    <a href="#band" @click.prevent="scrollToSection('band')">BAND</a>
-                    <a href="#contact" @click.prevent="scrollToSection('contact')">CONTACT</a>
+                    <a href="#music" @click.prevent="scrollToSection('music')">MÚSICA</a>
+                    <a href="#about" @click.prevent="scrollToSection('about')">SOBRE</a>
+                    <a href="#band" @click.prevent="scrollToSection('band')">BANDA</a>
+                    <a href="#contact" @click.prevent="scrollToSection('contact')">CONTATO</a>
                 </nav>
                 <div class="header-controls">
                     <div class="play-button" @click="togglePlayer">
@@ -35,15 +35,15 @@
         <section class="hero">
             <div class="hero-grid">
                 <div class="hero-left">
-                    <div class="hero-label">EXPERIMENTAL SOUND</div>
-                    <h1 class="hero-title">AUTOMATTA</h1>
-                    <div class="hero-subtitle">REDEFINING MUSICAL BOUNDARIES</div>
+                    <div class="hero-label">SOM EXPERIMENTAL</div>
+                    <img src="./assets/images/band/automatta_logo.png" alt="AUTOMATTA" class="hero-logo">
+                    <div class="hero-subtitle">REDEFININDO LIMITES MUSICAIS</div>
                     <div class="hero-actions">
                         <button class="action-btn primary" @click="scrollToSection('music')">
-                            LISTEN NOW
+                            OUÇA AGORA
                         </button>
                         <button class="action-btn secondary" @click="scrollToSection('about')">
-                            DISCOVER
+                            DESCUBRA
                         </button>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
         <section id="music" class="music-section">
             <div class="section-header">
                 <div class="section-number">01</div>
-                <h2 class="section-title">DISCOGRAPHY</h2>
+                <h2 class="section-title">DISCOGRAFIA</h2>
             </div>
             <div class="music-grid">
                 <div class="album-showcase">
@@ -86,21 +86,21 @@
             <div class="about-grid">
                 <div class="about-content">
                     <div class="manifesto-text">
-                        <p>AUTOMATTA transcends conventional musical boundaries, forging a new path through experimental
-                            soundscapes and electronic innovation.</p>
-                        <p>Our sound is the collision between organic and synthetic, where human emotion meets digital
-                            precision.</p>
-                        <p>We don't just make music. We architect experiences.</p>
+                        <p>AUTOMATTA transcende os limites musicais convencionais, traçando um novo caminho através de
+                            paisagens sonoras experimentais e inovação eletrônica.</p>
+                        <p>Nosso som é a colisão entre o orgânico e o sintético, onde a emoção humana encontra a
+                            precisão digital.</p>
+                        <p>Não apenas fazemos música. Arquitetamos experiências.</p>
                     </div>
                 </div>
                 <div class="about-stats">
                     <div class="stat-block">
                         <div class="stat-number">2024</div>
-                        <div class="stat-label">ESTABLISHED</div>
+                        <div class="stat-label">FUNDADA</div>
                     </div>
                     <div class="stat-block">
                         <div class="stat-number">∞</div>
-                        <div class="stat-label">POSSIBILITIES</div>
+                        <div class="stat-label">POSSIBILIDADES</div>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
         <section id="band" class="band-section">
             <div class="section-header">
                 <div class="section-number">03</div>
-                <h2 class="section-title">BAND</h2>
+                <h2 class="section-title">BANDA</h2>
             </div>
             <div class="carousel-container">
                 <div class="carousel-wrapper">
@@ -240,7 +240,7 @@
         <section id="contact" class="contact-section">
             <div class="section-header">
                 <div class="section-number">04</div>
-                <h2 class="section-title">CONNECT</h2>
+                <h2 class="section-title">CONECTE-SE</h2>
             </div>
             <div class="contact-grid">
                 <div class="contact-links">
@@ -505,11 +505,25 @@ body, html {
    ============================================ */
 
 .hero {
-    min-height: 100vh;
-    padding-top: 80px;
+    height: auto;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
+    position: relative;
+    background-image: url('./assets/images/band/fundo.jpg');
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(14, 14, 15, 0.85) 0%, rgba(28, 30, 34, 0.85) 100%);
+    pointer-events: none;
 }
 
 .hero-grid {
@@ -521,6 +535,8 @@ body, html {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-left {
@@ -548,6 +564,15 @@ body, html {
     color: #E87A2F;
     text-transform: uppercase;
     font-weight: 700;
+}
+
+.hero-logo {
+    height: auto;
+    width: 100%;
+    max-width: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 30px rgba(232, 122, 47, 0.3));
+    animation: slideInLeft 0.8s ease-out;
 }
 
 .hero-title {
